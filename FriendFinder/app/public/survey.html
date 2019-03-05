@@ -123,8 +123,7 @@
           <option value="5">5 (Strongly Agree)</option>
         </select> 
         <div>
-            <button type="submit" class="btn btn-primary btn-md" id="submit"><i class="fa fa-check-circle"
-                    aria-hidden="true"></i>
+            <button type="submit" class="btn btn-primary btn-md" id="submit">
                 Submit
             </button>
         </div>
@@ -201,7 +200,7 @@
                         $("#match-name").text(data.name);
                         $("#match-img").attr("src", data.photo);
                         // Show the modal with the best match
-                        $("#results-modal").modal('show');
+                        $("#results-modal").modal('toggle');
                     });
                 } else {
                     alert("Fill all required fields!");
