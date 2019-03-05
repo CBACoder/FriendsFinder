@@ -48,8 +48,8 @@ module.exports = function(app) {
         }console.log(totalDifference);
         // Add new user to friends
         friends.push(userInput);
-        console.log(matchName);
-        console.log(matchImage);
+        //console.log(matchName);
+        //console.log(matchImage);
         // Send response to user
         res.json({matchName: matchName, matchImage: matchImage });
     });

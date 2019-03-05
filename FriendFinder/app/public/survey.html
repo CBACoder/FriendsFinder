@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title><Survey></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- <link rel="stylesheet" type="text/css" media="screen" href="../css/main.css"> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script> -->
-	<!-- Link to the jQuery Library -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <title>FriendFinder</title>
+
+    <!--CSS and jQuery -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.5.1/chosen.jquery.min.js"></script>
+
 </head>
 <body>
     <div class="container" style="text-align: left; background-color:rgba(95, 106, 119, 0.527);">
@@ -127,6 +129,13 @@
                 Submit
             </button>
         </div>
+        <div>
+            <a href="/catch-all">
+                <button type="button" class="btn btn-lg btn-primary">
+                    <h4><span class="glyphicon glyphicon-list-alt"></span> Catch-All</h4>
+                </button>
+            </a>
+        </div>
     </div>
       <!-- Modal -->
     <div id="results-modal" class="modal fade" role="dialog">
@@ -196,11 +205,12 @@
                     // send data to api/friends.
                     $.post("/api/friends", userData, function (data) {
                         // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-                        console.log(data);
+                        //console.log(data);
                         $("#match-name").text(data.name);
                         $("#match-img").attr("src", data.photo);
                         // Show the modal with the best match
                         $("#results-modal").modal('toggle');
+                        $(".chosen-select").val('');
                     });
                 } else {
                     alert("Fill all required fields!");
